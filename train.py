@@ -27,6 +27,12 @@ train_data_Y = train_data['9']
 test_data_X = test_data.drop(['9'], 1)
 test_data_Y = test_data['9']
 
+base_rate_train=0
+for row in train_data_Y:
+    if row == 1:
+        base_rate_train+=1
+print("The base rate for the training data is " + str(base_rate_train/1000))
+
 binary_vectorizer = CountVectorizer(binary=True)
 binary_vectorizer.fit(train_data['2'])
 
